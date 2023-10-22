@@ -1,7 +1,7 @@
 /* Navbar.css */
 
 .navbar {
-  background-color: #000000; /* Background color for the navbar */
+  background-color: #3f579c; /* Background color for the navbar */
   color: #fff; /* Text color for the navbar items */
   padding: 25px 30px; /* Add padding to space out the items */
   display: flex; /* Display the left and right sections in a row */
@@ -11,10 +11,10 @@
 }
 
 .navbar-logo {
-  width: 30px; /* Adjust the width of the logo as needed */
-  height: 30px; /* Adjust the height of the logo as needed */
-  margin-right: 10px; /* Add margin to separate the logo from the title */
-  transition: transform 0.3s; /* Add a transform animation on hover */
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  transition: transform 0.3s;
 }
 .navbar-left {
   display: flex;
