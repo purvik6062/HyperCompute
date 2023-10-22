@@ -1,17 +1,28 @@
 /* Navbar.css */
 
 .navbar {
-  background-color: #333; /* Background color for the navbar */
+  background-color: #000000; /* Background color for the navbar */
   color: #fff; /* Text color for the navbar items */
-  padding: 10px; /* Add padding to space out the items */
+  padding: 25px 30px; /* Add padding to space out the items */
   display: flex; /* Display the left and right sections in a row */
   justify-content: space-between; /* Separate them to the left and right */
   align-items: center; /* Vertically center the content */
+  transition: background-color 0.3s; /* Add a smooth background color transition */
 }
 
+.navbar-logo {
+  width: 30px; /* Adjust the width of the logo as needed */
+  height: 30px; /* Adjust the height of the logo as needed */
+  margin-right: 10px; /* Add margin to separate the logo from the title */
+  transition: transform 0.3s; /* Add a transform animation on hover */
+}
+.navbar-left {
+  display: flex;
+}
 .navbar-title {
   font-size: 24px; /* Adjust the title font size */
   font-weight: bold; /* Make the title bold */
+  transition: color 0.3s; /* Add a color transition on hover */
 }
 
 .connect-wallet-button {
@@ -21,6 +32,7 @@
   padding: 10px 20px; /* Add padding to the button */
   border-radius: 4px; /* Add some border radius for a button look */
   cursor: pointer; /* Change cursor to pointer on hover */
+  transition: background-color 0.3s; /* Add a smooth background color transition */
 }
 
 .connect-wallet-button:hover {

@@ -1,39 +1,72 @@
+/* Cards.css */
+
 .card-container {
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-
-/* Add media query for responsiveness */
-@media (max-width: 768px) {
-  .card-container {
-    flex-direction: column;
-  }
+  justify-content: space-between;
+  background-color: #000;
+  height: 89vh;
 }
 
 .card {
-  background-color: #fff;
-  border: 1px solid #ddd;
+  width: 47%;
+  border: 1px solid #ccc;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 16px;
   margin: 10px;
-  padding: 20px;
-  width: 300px;
+  background: linear-gradient(to bottom, #3c3c3c, #2980b9);
+  color: white;
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  transition: transform 0.3s;
+}
+
+.card h2 {
   text-align: center;
-  transition: transform 0.2s;
+  margin: 0;
 }
 
 .card:hover {
-  transform: scale(1.05);
+  transform: scale(1);
 }
 
-h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: #333;
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-p {
-  font-size: 1rem;
-  color: #777;
+.dropdown {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.dropdown select {
+  -webkit-appearance: none; /* Remove the default arrow for webkit browsers (Safari and Chrome) */
+  -moz-appearance: none; /* Remove the default arrow for Firefox */
+  appearance: none; /* Remove the default arrow for modern browsers */
+  background-image: url("your-dropdown-arrow-image.png"); /* Replace 'your-dropdown-arrow-image.png' with the actual image path */
+  background-position: right center;
+  background-repeat: no-repeat;
+  padding-right: 30px; /* Adjust the padding to make space for the arrow image */
+  background-color: #f4f4f4;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  width: 150px;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dropdown select:hover {
+  background-color: #e0e0e0;
+}
+
+.card {
+  border: 2px solid #3498db;
+}
+
+.card:hover {
+  border-color: #2980b9;
 }

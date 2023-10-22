@@ -1,20 +1,13 @@
 import React from "react";
-import "../styles/Cards.css"; // Import your CSS file for styling
-
-const cardData = [
-  { title: "Card 1", content: "Content for Card 1" },
-  { title: "Card 2", content: "Content for Card 2" },
-];
+import Source from "./Source";
+import Destination from "./Destination";
+import "../styles/Cards.css";
 
 function Cards() {
   return (
     <div className="card-container">
-      {cardData.map((card, index) => (
-        <div className="card" key={index}>
-          <h3>{card.title}</h3>
-          <p>{card.content}</p>
-        </div>
-      ))}
+      <Source />
+      <Destination />
     </div>
   );
 }
