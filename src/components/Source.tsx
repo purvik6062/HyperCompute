@@ -1,6 +1,9 @@
 import React from "react";
+import { useState } from "react";
 
 function Source() {
+  const [contractBytecode, setContractBytecode] = useState("");
+  const [encodedFunctionData, setEncodedFunctionData] = useState("");
   const chainOptions = [
     { value: "bitcoin", label: "Select chain" },
     { value: "alfajores", label: "Alfajores", logo: "alfajores.png" },
@@ -41,7 +44,20 @@ function Source() {
           </select>
         </div>
       </div>
-      {/* Add other receiver-related content here */}
+      <div className="input-field">
+        <label htmlFor="encodedFunctionData">Encoded Function Data</label>
+        <textarea
+          value={encodedFunctionData}
+          onChange={(e) => setEncodedFunctionData(e.target.value)}
+        />
+      </div>
+      <div className="input-field">
+        <label htmlFor="contractBytecode">Contract Bytecode</label>
+        <textarea
+          value={contractBytecode}
+          onChange={(e) => setContractBytecode(e.target.value)}
+        />
+      </div>
     </div>
   );
 }
