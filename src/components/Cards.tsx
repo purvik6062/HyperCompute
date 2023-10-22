@@ -1,4 +1,3 @@
-import React from "react";
 import Source from "./Source";
 import Destination from "./Destination";
 import "../styles/Cards.css";

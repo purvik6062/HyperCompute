@@ -1,5 +1,3 @@
-import React from "react";
-
 function Destination() {
   const chainOptions = [
     { value: "bitcoin", label: "Select chain" },

@@ -1,4 +1,3 @@
-import React from "react";
 import "../styles/Navbar.css"; // Import your CSS file for styling
 import logo from "../assets/HyperCompute.png";
 import { ConnectKitButton } from "connectkit"; // Replace with the actual path to your logo image

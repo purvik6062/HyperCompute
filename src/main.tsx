@@ -3,30 +3,11 @@ import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
 import { WagmiConfig, createConfig } from "wagmi";
-import {
-  ConnectKitProvider,
-  ConnectKitButton,
-  getDefaultConfig,
-} from "connectkit";
+import { ConnectKitProvider, getDefaultConfig } from "connectkit";
 import { configureChains } from "wagmi";
 import { sepolia, polygonMumbai } from "wagmi/chains";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
-
-const modeConfig = {
-  id: 919,
-  name: "Mode Testnet",
-  network: "Mode",
-  nativeCurrency: {
-    decimals: 18,
-    name: "Mode Testnet",
-    symbol: "ETH",
-  },
-  rpcUrls: {
-    public: { http: ["https://sepolia.mode.network/"] },
-    default: { http: ["https://sepolia.mode.network/"] },
-  },
-};
 
 const { chains } = configureChains(
   [sepolia, polygonMumbai],

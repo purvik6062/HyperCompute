@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import { BiTransferAlt } from "react-icons/bi";
 import { ethers } from "ethers";
 import MessageRouter from "../artifacts/contracts/MessageRouter.sol/MessageRouter.json";
 
@@ -31,8 +30,12 @@ function Source() {
     { value: "sepolia", label: "Sepolia", logo: "sepolia.png" },
   ];
 
+  const [isSending, setIsSending] = useState(false); // State to track if the operation is in progress
+
   const sendMessage = async () => {
     try {
+      setIsSending(true); // Set the sending state to true
+
       const { ethereum } = window;
       const provider = new ethers.providers.Web3Provider(ethereum);
       const signer = provider.getSigner();
@@ -43,26 +46,26 @@ function Source() {
         signer
       );
 
-      const byteCode = "0x" + contractBytecode; // Ensure it's in hexadecimal format
-      const valueInFinney = 20; // 10 Finney
+      const byteCode = "0x" + contractBytecode;
+      const valueInFinney = 20;
       const valueInWei = ethers.utils.parseUnits(
         valueInFinney.toString(),
         "finney"
       );
 
-      // Call the sendMessage function
       const transaction = await MessageRouterContract.sendMessage(
         byteCode,
         encodedFunctionData,
-        { value: valueInWei } // You may adjust the value as needed
+        { value: valueInWei }
       );
 
-      // Wait for the transaction to be mined
       await transaction.wait();
 
       console.log("Message sent successfully!");
     } catch (error) {
       console.error("Error sending message:", error);
+    } finally {
+      setIsSending(false); // Reset the sending state to false when done
     }
   };
 
@@ -80,7 +83,6 @@ function Source() {
           </select>
         </div>
       </div>
-      {/* <BiTransferAlt className="transfer-icon" /> */}
       <div className="input-field">
         <label htmlFor="encodedFunctionData">Encoded Function Data</label>
         <textarea
@@ -95,8 +97,14 @@ function Source() {
           onChange={(e) => setContractBytecode(e.target.value)}
         />
       </div>
-      <button onClick={sendMessage}>Send Message</button>{" "}
-      {/* Add a button to trigger the sendMessage function */}
+
+      <button
+        className="centered-button"
+        onClick={sendMessage}
+        disabled={isSending}
+      >
+        {isSending ? "Sending..." : "Send Message"}
+      </button>
     </div>
   );
 }
