@@ -1,5 +1,6 @@
-import React from "react";
 import { useState } from "react";
+import { ethers } from "ethers";
+import MessageRouter from "../artifacts/contracts/MessageRouter.sol/MessageRouter.json";
 
 function Source() {
   const [contractBytecode, setContractBytecode] = useState("");
@@ -27,8 +28,44 @@ function Source() {
       logo: "arbitrumgoerli.png",
     },
     { value: "sepolia", label: "Sepolia", logo: "sepolia.png" },
-    // Add more blockchain options as needed
   ];
+
+  const sendMessage = async () => {
+    try {
+      const { ethereum } = window;
+      const provider = new ethers.providers.Web3Provider(ethereum);
+      const signer = provider.getSigner();
+
+      const MessageRouterContract = new ethers.Contract(
+        MessageRouter.address,
+        MessageRouter.abi,
+        signer
+      );
+
+      const byteCode = "0x" + contractBytecode; // Ensure it's in hexadecimal format
+      const valueInFinney = 20; // 10 Finney
+      const valueInWei = ethers.utils.parseUnits(
+        valueInFinney.toString(),
+        "finney"
+      );
+
+      // Call the sendMessage function
+      const transaction = await MessageRouterContract.sendMessage(
+        byteCode,
+        encodedFunctionData,
+        { value: valueInWei } // You may adjust the value as needed
+      );
+
+      // Wait for the transaction to be mined
+      await transaction.wait();
+
+      console.log("Message sent successfully!");
+    } catch (error) {
+      console.error("Error sending message:", error);
+    }
+  };
+
+  // ... Rest of your component code ...
 
   return (
     <div className="card">
@@ -58,6 +95,8 @@ function Source() {
           onChange={(e) => setContractBytecode(e.target.value)}
         />
       </div>
+      <button onClick={sendMessage}>Send Message</button>{" "}
+      {/* Add a button to trigger the sendMessage function */}
     </div>
   );
 }
