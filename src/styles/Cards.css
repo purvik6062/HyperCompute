@@ -115,3 +115,18 @@ textarea {
   font-size: 15rem;
   top: 34%;
 }
+
+.centered-button {
+  display: block;
+  margin: 0 auto; /* Center align the button horizontally */
+  background-color: #007bff; /* Button background color */
+  color: #fff; /* Button text color */
+  border: none; /* Remove button border */
+  padding: 10px 20px; /* Button padding */
+  border-radius: 4px; /* Button border radius */
+  cursor: pointer; /* Add cursor pointer on hover */
+}
+
+.centered-button:hover {
+  background-color: #0056b3; /* Change button background color on hover */
+}
