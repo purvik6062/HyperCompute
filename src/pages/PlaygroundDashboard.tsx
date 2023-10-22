@@ -5,8 +5,10 @@ import Cards from "../components/Cards";
 function PlaygroundDashboard() {
   return (
     <>
-      <Navbar />
-      <Cards />
+      <div className="Playground-main">
+        <Navbar />
+        <Cards />
+      </div>
     </>
   );
 }

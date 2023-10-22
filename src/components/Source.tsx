@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+// import { BiTransferAlt } from "react-icons/bi";
 
 function Source() {
   const [contractBytecode, setContractBytecode] = useState("");
@@ -44,6 +45,7 @@ function Source() {
           </select>
         </div>
       </div>
+      {/* <BiTransferAlt className="transfer-icon" /> */}
       <div className="input-field">
         <label htmlFor="encodedFunctionData">Encoded Function Data</label>
         <textarea
