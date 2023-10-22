@@ -66,8 +66,6 @@ function Source() {
     }
   };
 
-  // ... Rest of your component code ...
-
   return (
     <div className="card">
       <div className="card-header">
